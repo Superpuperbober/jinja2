@@ -1,0 +1,29 @@
+{% macro render_list(list,first,last) %}
+<table>
+ <tr>
+  <td>x</td><td>f(x)</td><td>y(x)</td>
+ </tr>
+ {% if first < 0 or last<0 or first > list['x']|length or last > list['x']|length or last < first %}
+ {% for i in range(list['x']|length) %}
+ <tr>
+  <td>{{list['x'][i]}}
+   </td>
+  <td>{{list['f(x)'][i]}}
+   </td>
+  <td>{{list['y(x)'][i]}}
+   </td>
+  </tr>
+ {% endfor %}
+ {% endif %}
+ {% for i in range(first,last+1) %}
+ <tr>
+  <td>{{list['x'][i]}}
+   </td>
+  <td>{{list['f(x)'][i]}}
+   </td>
+  <td>{{list['y(x)'][i]}}
+   </td>
+  </tr>
+ {% endfor %}
+ </table>
+{% endmacro %}

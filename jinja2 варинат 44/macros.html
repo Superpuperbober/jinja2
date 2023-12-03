@@ -1,0 +1,13 @@
+{% macro render_list(name,list,cur) %}
+<select name = "{{ name }}">
+ {% for i in range(list|length) %}
+ {% if cur == i %}
+<option value = {{i}} selected>
+ {%else%}
+ <option value = {{i}} >
+ {%endif%}
+  {{list[i]}}
+</option>
+ {% endfor %}
+ </select>
+{% endmacro %}
